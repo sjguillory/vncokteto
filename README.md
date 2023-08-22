@@ -1,1 +1,1 @@
-# vncokteto
+# okteto-debain-desktop
