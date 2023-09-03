@@ -15,7 +15,7 @@ RUN echo 'zaq12wsx' | vncpasswd -f > /home/dvps/.vnc/passwd
 RUN chmod 600 /home/dvps/.vnc/passwd
 RUN chown -R dvps:dvps /home/dvps/.vnc
 RUN su - dvps
-RUN vncserver :2000
+RUN USER=dvps vncserver :2000
 RUN cd /noVNC-1.4.0
 RUN ./utils/novnc_proxy --vnc localhost:7900 --listen 443
 EXPOSE 443
