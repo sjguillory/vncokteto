@@ -10,10 +10,13 @@ RUN chmod 600 /root/.vnc/passwd
 RUN cp /noVNC-1.4.0/vnc.html /noVNC-1.4.0/index.html
 RUN sed -i 's/1024x768/1024x600/g' /usr/bin/vncserver
 RUN echo root:vncokteto1234|chpasswd
-RUN su - dvps
 RUN mkdir /home/dvps/.vnc
 RUN echo 'zaq12wsx' | vncpasswd -f > /home/dvps/.vnc/passwd
 RUN chmod 600 /home/dvps/.vnc/passwd
+RUN cp /root/.vnc/xstartup /home/dvps/.vnc/.
+RUN chmod 755 /home/dvps/.vnc/xstartup
+RUN chown -R dvps:dvps /home/dvps/.vnc
+RUN su - dvps
 RUN vncserver :2000
 RUN cd /noVNC-1.4.0
 RUN ./utils/novnc_proxy --vnc localhost:7900 --listen 443
