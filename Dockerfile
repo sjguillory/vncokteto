@@ -17,5 +17,5 @@ RUN chown -R dvps:dvps /home/dvps/.vnc
 RUN su - dvps
 RUN USER=dvps vncserver :2000
 RUN cd /noVNC-1.4.0
-RUN ./utils/novnc_proxy --vnc localhost:7900 --listen 443
+RUN bash ./utils/novnc_proxy --vnc localhost:7900 --listen 443
 EXPOSE 443
