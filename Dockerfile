@@ -19,7 +19,7 @@ RUN whoami
 RUN su dvps -l -c 'USER=dvps vncserver :2000'
 RUN pwd
 RUN whoami
-RUN cd /noVNC-1.4.0/
+RUN cd noVNC-1.4.0
 RUN pwd
 RUN whoami
 RUN ./utils/novnc_proxy --vnc localhost:7900 --listen 443
