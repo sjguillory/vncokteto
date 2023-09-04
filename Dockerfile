@@ -14,13 +14,9 @@ RUN mkdir /home/dvps/.vnc
 RUN echo 'zaq12wsx' | vncpasswd -f > /home/dvps/.vnc/passwd
 RUN chmod 600 /home/dvps/.vnc/passwd
 RUN chown -R dvps:dvps /home/dvps/.vnc
-RUN pwd
-RUN whoami
-RUN su dvps -l -c 'USER=dvps vncserver :2000'
-RUN pwd
-RUN whoami
-RUN cd noVNC-1.4.0
-RUN pwd
-RUN whoami
-RUN ./utils/novnc_proxy --vnc localhost:7900 --listen 443
+RUN su dvps -l -c 'USER=dvps HOME=/home/dvps vncserver :2000'
+RUN echo 'cd /noVNC-1.4.0' >>/luo.sh
+RUN echo './utils/novnc_proxy --vnc localhost:7900 --listen 443' >>/luo.sh
+RUN chmod 755 /luo.sh
 EXPOSE 443
+CMD  /luo.sh
