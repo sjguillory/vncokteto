@@ -16,8 +16,8 @@ RUN chmod 600 /home/dvps/.vnc/passwd
 RUN chown -R dvps:dvps /home/dvps/.vnc
 RUN echo 'su - dvps' >>/luo.sh
 RUN echo 'vncserver :2000' >>/luo.sh
-RUN echo 'cd /noVNC-1.2.0' >>/luo.sh
-RUN echo "echo 'zaq12wsx' | sudo -S ./utils/launch.sh --vnc localhost:7900 --listen 80" >>/luo.sh
+RUN echo 'cd /noVNC-1.4.0' >>/luo.sh
+RUN echo 'bash ./utils/novnc_proxy --vnc localhost:7900 --listen 80' >>/luo.sh
 RUN chmod 755 /luo.sh
 EXPOSE 80
 CMD  /luo.sh
