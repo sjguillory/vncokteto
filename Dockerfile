@@ -2,7 +2,7 @@ FROM debian
 RUN apt update
 RUN DEBIAN_FRONTEND=noninteractive apt install firefox-esr mate-system-monitor git lxde tightvncserver wget vim sudo -y
 RUN wget https://downloads.ghostbrowser.com/ghost-browser-stable_2.1.5.1_amd64.deb
-RUN DEBIAN_FRONTEND=noninteractive apt install ghost-browser-stable_2.1.5.1_amd64.deb -y
+RUN DEBIAN_FRONTEND=noninteractive apt install ./ghost-browser-stable_2.1.5.1_amd64.deb -y
 RUN rm ghost-browser-stable_2.1.5.1_amd64.deb
 RUN useradd -m -p $(openssl passwd -1 zaq12wsx) -s /bin/bash -G sudo dvps
 RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.tar.gz
